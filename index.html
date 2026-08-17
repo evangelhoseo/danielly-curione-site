@@ -40,6 +40,9 @@
   a { color:#B96A4B; text-decoration:none; }
   a:hover { opacity:.72; }
   input, select, button, textarea { font-family:inherit; }
+  /* Trava de estouro: sem isso o <select> herda a largura da opção mais longa
+     ("Presencial em Niterói") e empurra a coluna do grid além da tela no mobile. */
+  input, select, textarea { max-width:100%; min-width:0; box-sizing:border-box; }
   ::selection { background:#E8D5BC; }
 </style>
 
@@ -345,7 +348,7 @@
           <label style="display:flex; flex-direction:column; gap:7px; font-size:13px; font-weight:700; color:#8A6A3E">O que você procura
             <select value="{{ servico }}" onChange="{{ setServico }}" style="border:1px solid #EBDCC6; border-radius:12px; background:#FBF3E8; padding:13px 14px; font-size:16px; color:#2A211B; font-weight:400; outline:none"><option>Psicoterapia individual</option><option>Terapia de casal</option><option>Atendimento para criança</option><option>Atendimento para adolescente</option><option>Atendimento para idoso</option><option>Avaliação psicológica</option><option>Orientação profissional</option></select>
           </label>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px">
+          <div style="display:grid; grid-template-columns:{{ grid.pair }}; gap:16px">
             <label style="display:flex; flex-direction:column; gap:7px; font-size:13px; font-weight:700; color:#8A6A3E">Modalidade
               <select value="{{ modalidade }}" onChange="{{ setModalidade }}" style="border:1px solid #EBDCC6; border-radius:12px; background:#FBF3E8; padding:13px 14px; font-size:16px; color:#2A211B; font-weight:400; outline:none"><option>Online</option><option>Presencial em Niterói</option></select>
             </label>
@@ -393,7 +396,7 @@
         <label style="display:flex; flex-direction:column; gap:7px; font-size:13px; font-weight:700; color:#8A6A3E">O que você procura
           <select value="{{ servico }}" onChange="{{ setServico }}" style="border:1px solid #EBDCC6; border-radius:12px; background:#FBF3E8; padding:13px 14px; font-size:16px; color:#2A211B; font-weight:400; outline:none"><option>Psicoterapia individual</option><option>Terapia de casal</option><option>Atendimento para criança</option><option>Atendimento para adolescente</option><option>Atendimento para idoso</option><option>Avaliação psicológica</option><option>Orientação profissional</option></select>
         </label>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+        <div style="display:grid; grid-template-columns:{{ grid.pair }}; gap:14px">
           <label style="display:flex; flex-direction:column; gap:7px; font-size:13px; font-weight:700; color:#8A6A3E">Modalidade
             <select value="{{ modalidade }}" onChange="{{ setModalidade }}" style="border:1px solid #EBDCC6; border-radius:12px; background:#FBF3E8; padding:13px 14px; font-size:16px; color:#2A211B; font-weight:400; outline:none"><option>Online</option><option>Presencial em Niterói</option></select>
           </label>
@@ -442,7 +445,8 @@
 
   </div>
 
-  <div style="background:#2A211B; color:#D8C9B6; padding:50px {{ pad.x }} 32px; display:flex; flex-direction:column; gap:24px">
+  <!-- padding-bottom generoso: o botão flutuante do WhatsApp é fixed e cobria a linha do CVV -->
+  <div style="background:#2A211B; color:#D8C9B6; padding:50px {{ pad.x }} {{ pad.footerBottom }}; display:flex; flex-direction:column; gap:24px">
     <div style="display:flex; justify-content:space-between; gap:40px; flex-wrap:wrap">
       <div style="display:flex; align-items:center; gap:12px">
         <img src="./logo-simbolo-light.svg" alt="" style="height:38px; width:auto; display:block">
@@ -521,14 +525,14 @@ class Component extends DCLogic {
       quote: '42px', quoteSm: '38px', heroImgH: '440px', midImgH: '340px', fabRight: '26px', fabBottom: '26px', fabPad: '15px 24px'
     };
     const grid = isMobile ? {
-      hero: '1fr', threeUp: '1fr', twoUp: '1fr', fourUp: '1fr', sobreHero: '1fr', contato: '1fr'
+      hero: '1fr', threeUp: '1fr', twoUp: '1fr', fourUp: '1fr', sobreHero: '1fr', contato: '1fr', pair: '1fr'
     } : {
-      hero: '1fr 1fr', threeUp: 'repeat(3,1fr)', twoUp: '1fr 1fr', fourUp: 'repeat(4,1fr)', sobreHero: '.9fr 1.1fr', contato: '1.05fr .95fr'
+      hero: '1fr 1fr', threeUp: 'repeat(3,1fr)', twoUp: '1fr 1fr', fourUp: 'repeat(4,1fr)', sobreHero: '.9fr 1.1fr', contato: '1.05fr .95fr', pair: 'minmax(0,1fr) minmax(0,1fr)'
     };
     const pad = isMobile ? {
-      x: '20px', top: '48px', hero: '40px 20px 48px', section: '56px 20px', card: '40px 20px', quote: '36px 26px', quoteSm: '32px 24px'
+      x: '20px', top: '48px', hero: '40px 20px 48px', section: '56px 20px', card: '40px 20px', quote: '36px 26px', quoteSm: '32px 24px', footerBottom: '104px'
     } : {
-      x: '40px', top: '80px', hero: '70px 40px 80px', section: '80px 40px', card: '80px 56px', quote: '56px 60px', quoteSm: '50px 56px'
+      x: '40px', top: '80px', hero: '70px 40px 80px', section: '80px 40px', card: '80px 56px', quote: '56px 60px', quoteSm: '50px 56px', footerBottom: '96px'
     };
     const gaps = isMobile ? { sm: '18px', md: '24px', footer: '32px' } : { sm: '24px', md: '40px', footer: '56px' };
     const navMap = { home: 'Início', sobre: 'Sobre', atendimentos: 'Atendimentos ⌄', avaliacao: 'Avaliação Psicológica', orientacao: 'Orientação Profissional', blog: 'Blog', contato: 'Contato', sublocacao: 'Sublocação' };

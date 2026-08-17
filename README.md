@@ -55,10 +55,27 @@ Push na `main` → o GitHub Pages republica em ~1 min. Não há Actions neste re
   com `_`. Não há pasta `_` hoje, mas o arquivo fica como proteção — foi exatamente isso que
   quebrou o `vinicolo-site` na primeira publicação.
 - **Repo público** porque GitHub Pages gratuito exige isso.
-- **Reexportar do Claude Design sobrescreve o `<head>`.** Todo o SEO (title, description, robots,
-  canonical, OG, JSON-LD, favicon, `lang="pt-BR"`) foi escrito à mão no `<head>` estático, fora do
-  `<helmet>`, porque o `<helmet>` só é aplicado depois do JS carregar. Se vier um export novo,
-  reaplicar esse bloco.
+- **`1fr` com `<select>` dentro estoura a tela.** `1fr` é `minmax(auto,1fr)`, e o piso `auto` é a
+  largura da opção mais longa do select ("Presencial em Niterói", ~200px). No par
+  Modalidade/Melhor período isso dava colunas de `202px 99px` em vez de 50/50: no mobile o rótulo
+  "Melhor período" era cortado e a página de Contato ganhava rolagem horizontal. Corrigido com
+  `grid.pair` (empilha no mobile, `minmax(0,1fr)` no desktop) + trava
+  `input,select,textarea{max-width:100%;min-width:0;box-sizing:border-box}` no `<style>`.
+  **Se criar outro par de campos lado a lado, use `{{ grid.pair }}`, nunca `1fr 1fr`.**
+- **O botão flutuante do WhatsApp é `fixed`** e cobria a linha do CVV no fim do rodapé — a linha mais
+  sensível do site. O rodapé tem `padding-bottom` extra (`pad.footerBottom`) só por causa disso.
+  Não reduzir.
+
+### Reexportar do Claude Design apaga estas correções
+
+Um export novo sobrescreve o arquivo inteiro. Estas quatro coisas foram feitas à mão e precisam ser
+reaplicadas:
+
+1. Todo o `<head>` estático de SEO (title, description, robots, canonical, OG, JSON-LD, favicon,
+   `lang="pt-BR"`) — fora do `<helmet>`, que só roda depois do JS carregar.
+2. `criancas`, `casal` e `avaliacao` no mapa `servicePages` + o título da página de LGPD.
+3. `grid.pair` nos dois pares de campos e a trava de largura dos campos no `<style>`.
+4. `pad.footerBottom` no rodapé.
 
 ## Ao ligar o domínio próprio
 
