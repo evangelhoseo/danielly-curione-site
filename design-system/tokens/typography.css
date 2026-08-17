@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,400&family=Nunito+Sans:wght@300;400;600;700&display=swap');
+
+:root {
+  --font-display: 'Newsreader', serif;
+  --font-body: 'Nunito Sans', sans-serif;
+
+  --text-display-xl: 400 56px/1.16 var(--font-display);
+  --text-display-lg: 400 40px/1.18 var(--font-display);
+  --text-display-md: 400 25px/1.25 var(--font-display);
+  --text-display-quote: italic 400 42px/1.32 var(--font-display);
+
+  --text-body-lg: 300 17px/1.8 var(--font-body);
+  --text-body-md: 300 14.5px/1.75 var(--font-body);
+  --text-label: 700 13px/1 var(--font-body);
+  --text-eyebrow: 700 13px/1.2 var(--font-body);
+}

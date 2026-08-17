@@ -1,0 +1,17 @@
+<!-- @dsCard group="Components" viewport="700x320" name="Quote Block" -->
+<!DOCTYPE html>
+<html><head><link rel="stylesheet" href="../../styles.css">
+<script src="../../_ds_bundle.js"></script>
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body style="margin:0; background:var(--surface-page); padding:24px; display:flex; justify-content:center">
+<div id="root"></div>
+<script type="text/babel">
+const { QuoteBlock } = window.DCurione;
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <QuoteBlock quote="O que cura é o afeto: não há terapia sem simpatia." author="Sándor Ferenczi" />
+);
+</script>
+</body></html>

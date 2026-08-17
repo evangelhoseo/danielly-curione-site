@@ -1,0 +1,27 @@
+:root {
+  /* base */
+  --color-cream: #FBF3E8;
+  --color-cream-panel: #FFFAF2;
+  --color-wood: #E8D5BC;
+  --color-mustard: #C8871F;
+  --color-terracotta: #B96A4B;
+  --color-ink: #2A211B;
+  --color-ink-soft: #5C4C3F;
+  --color-taupe: #9A8467;
+  --color-chip: #F3E4CE;
+  --color-border: #EBDCC6;
+  --color-footer-border: #3D332A;
+
+  /* semantic */
+  --surface-page: var(--color-cream);
+  --surface-panel: var(--color-cream-panel);
+  --surface-accent: var(--color-wood);
+  --surface-inverse: var(--color-ink);
+  --text-heading: var(--color-ink);
+  --text-body: var(--color-ink-soft);
+  --text-muted: var(--color-taupe);
+  --text-inverse: #D8C9B6;
+  --brand-primary: var(--color-mustard);
+  --brand-secondary: var(--color-terracotta);
+  --border-default: var(--color-border);
+}
