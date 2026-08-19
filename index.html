@@ -162,7 +162,7 @@
     <section>
       <div style="display:grid; grid-template-columns:{{ grid.hero }}; gap:{{ gaps.md }}; padding:{{ pad.hero }}; align-items:center">
         <div style="display:flex; flex-direction:column; gap:{{ gaps.sm }}">
-          <div style="font-size:13px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#B96A4B">Psicologia clínica e psicanálise</div>
+          <div style="font-size:13px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#B96A4B">Psicologia clínica, psicanálise e avaliação psicológica</div>
           <h1 style="margin:0; font-family:'Newsreader',serif; font-weight:400; font-size:{{ sizes.h1 }}; line-height:1.16; color:#2A211B; text-wrap:pretty">Um espaço de escuta ética e acolhedora para cuidar da sua saúde mental.</h1>
           <p style="margin:0; font-size:16px; line-height:1.8; color:#5C4C3F; max-width:50ch">Psicoterapia para adultos, adolescentes, idosos e casais — online e presencial em Niterói.</p>
           <div style="display:flex; gap:14px; flex-wrap:wrap">
@@ -175,10 +175,6 @@
 
       <div style="padding:0 {{ pad.x }} 64px; display:flex; gap:10px; flex-wrap:wrap">
         <span style="background:#F3E4CE; padding:9px 16px; border-radius:999px; font-size:13px; color:#5C4C3F">CRP 05/77951</span>
-        <span style="background:#F3E4CE; padding:9px 16px; border-radius:999px; font-size:13px; color:#5C4C3F">Graduação UNESA/RJ</span>
-        <span style="background:#F3E4CE; padding:9px 16px; border-radius:999px; font-size:13px; color:#5C4C3F">Formação em Psicanálise · PRAXIS</span>
-        <span style="background:#F3E4CE; padding:9px 16px; border-radius:999px; font-size:13px; color:#5C4C3F">Pós em Clínica Psicanalítica · RAC</span>
-        <span style="background:#F3E4CE; padding:9px 16px; border-radius:999px; font-size:13px; color:#5C4C3F">Pós em Avaliação Psicológica · IPOG</span>
       </div>
 
       <div id="atendimentos" style="background:#FFFAF2; padding:{{ pad.section }}; display:flex; flex-direction:column; gap:34px">
@@ -187,7 +183,7 @@
           <div style="background:#FBF3E8; border-radius:18px; padding:28px 26px; display:flex; flex-direction:column; gap:10px; cursor:pointer" onClick="{{ nav.adultos }}"><div style="font-family:'Newsreader',serif; font-size:25px; color:#2A211B">Psicoterapia para adultos</div><p style="margin:0; font-size:14.5px; line-height:1.75; color:#5C4C3F">Ansiedade, luto, relações e as perguntas que insistem em voltar.</p><span style="font-size:13px; font-weight:700; color:#B96A4B; margin-top:6px">Saber mais →</span></div>
           <div style="background:#FBF3E8; border-radius:18px; padding:28px 26px; display:flex; flex-direction:column; gap:10px; cursor:pointer" onClick="{{ nav.criancas }}"><div style="font-family:'Newsreader',serif; font-size:25px; color:#2A211B">Crianças, adolescentes e idosos</div><p style="margin:0; font-size:14.5px; line-height:1.75; color:#5C4C3F">Escuta adequada a cada fase da vida, com a família próxima.</p><span style="font-size:13px; font-weight:700; color:#B96A4B; margin-top:6px">Saber mais →</span></div>
           <div style="background:#FBF3E8; border-radius:18px; padding:28px 26px; display:flex; flex-direction:column; gap:10px; cursor:pointer" onClick="{{ nav.casal }}"><div style="font-family:'Newsreader',serif; font-size:25px; color:#2A211B">Terapia de casal</div><p style="margin:0; font-size:14.5px; line-height:1.75; color:#5C4C3F">Um espaço para que os dois possam falar e ser escutados.</p><span style="font-size:13px; font-weight:700; color:#B96A4B; margin-top:6px">Saber mais →</span></div>
-          <div style="background:#FBF3E8; border-radius:18px; padding:28px 26px; display:flex; flex-direction:column; gap:10px; cursor:pointer" onClick="{{ nav.avaliacao }}"><div style="font-family:'Newsreader',serif; font-size:25px; color:#2A211B">Avaliação psicológica</div><p style="margin:0; font-size:14.5px; line-height:1.75; color:#5C4C3F">Oito contextos, do acompanhamento clínico aos laudos exigidos por lei.</p><span style="font-size:13px; font-weight:700; color:#B96A4B; margin-top:6px">Saber mais →</span></div>
+          <div style="background:#FBF3E8; border-radius:18px; padding:28px 26px; display:flex; flex-direction:column; gap:10px; cursor:pointer" onClick="{{ nav.avaliacao }}"><div style="font-family:'Newsreader',serif; font-size:25px; color:#2A211B">Avaliação psicológica</div><p style="margin:0; font-size:14.5px; line-height:1.75; color:#5C4C3F">Oito contextos, do acompanhamento clínico aos documentos psicológicos previstos em lei.</p><span style="font-size:13px; font-weight:700; color:#B96A4B; margin-top:6px">Saber mais →</span></div>
           <div style="background:#FBF3E8; border-radius:18px; padding:28px 26px; display:flex; flex-direction:column; gap:10px; cursor:pointer" onClick="{{ nav.orientacao }}"><div style="font-family:'Newsreader',serif; font-size:25px; color:#2A211B">Orientação profissional</div><p style="margin:0; font-size:14.5px; line-height:1.75; color:#5C4C3F">Escolhas de curso, transições de carreira e aposentadoria.</p><span style="font-size:13px; font-weight:700; color:#B96A4B; margin-top:6px">Saber mais →</span></div>
           <div style="background:#E8D5BC; border-radius:18px; padding:28px 26px; display:flex; flex-direction:column; gap:10px; justify-content:center; cursor:pointer" onClick="{{ openLead }}"><div style="font-family:'Newsreader',serif; font-style:italic; font-size:23px; color:#2A211B">Não sabe por onde começar?</div><p style="margin:0; font-size:14.5px; line-height:1.75; color:#5C4C3F">Escreva no WhatsApp. Conversamos antes de marcar.</p></div>
         </div>
@@ -210,7 +206,7 @@
       </div>
 
       <div style="padding:{{ pad.hero }}; display:grid; grid-template-columns:{{ grid.twoUp }}; gap:{{ gaps.md }}; align-items:center">
-        <div style="height:{{ sizes.midImgH }}; border-radius:24px; overflow:hidden"><img src="./assets/photo-consultorio.png" alt="Consultório" style="width:100%; height:100%; object-fit:cover; display:block"></div>
+        <div style="height:{{ sizes.midImgH }}; border-radius:24px; overflow:hidden"><img src="./assets/photo-sala-atendimento.jpg" alt="Sala de atendimento do consultório, com sofá e poltrona" style="width:100%; height:100%; object-fit:cover; display:block"></div>
         <div style="display:flex; flex-direction:column; gap:16px">
           <h2 style="margin:0; font-family:'Newsreader',serif; font-weight:400; font-size:{{ sizes.h2sm }}; color:#2A211B">Um espaço reservado, em todos os sentidos</h2>
           <p style="margin:0; font-size:15.5px; line-height:1.85; color:#5C4C3F; max-width:46ch">Tudo o que é dito em sessão é protegido pelo sigilo profissional (Art. 9º do Código de Ética Profissional do Psicólogo). Presencial no Plaza Corporate Offices — sala 818, Niterói — ou online.</p>
@@ -238,7 +234,6 @@
           <div style="display:flex; justify-content:space-between; gap:20px; border-bottom:1px solid #EBDCC6; padding:16px 0; font-size:15px; color:#4A453D"><span>Pós-graduação em Clínica Psicanalítica</span><span style="color:#9A8467; font-size:13px">RAC</span></div>
           <div style="display:flex; justify-content:space-between; gap:20px; border-bottom:1px solid #EBDCC6; padding:16px 0; font-size:15px; color:#4A453D"><span>Pós-graduação em Avaliação Psicológica</span><span style="color:#9A8467; font-size:13px">IPOG</span></div>
           <div style="display:flex; justify-content:space-between; gap:20px; border-bottom:1px solid #EBDCC6; padding:16px 0; font-size:15px; color:#4A453D"><span>Registro profissional</span><span style="color:#9A8467; font-size:13px">CRP 05/77951</span></div>
-          <div style="display:flex; justify-content:space-between; gap:20px; border-bottom:1px solid #EBDCC6; padding:16px 0; font-size:15px; color:#4A453D"><span>Congressos · CENAT-RJ · Autismo e Psicanálise (EMH)</span><span style="color:#9A8467; font-size:13px">Atualização</span></div>
         </div>
       </div>
       <div style="padding:{{ pad.section }}; display:flex; justify-content:center">
@@ -253,7 +248,7 @@
           <p style="margin:0; font-size:15px; line-height:1.85; color:#5C4C3F">O que você conta em sessão fica em sessão. O sigilo profissional é dever previsto no Art. 9º do Código de Ética Profissional do Psicólogo e é a base que torna possível falar sem receio — inclusive sobre o que é difícil de dizer em voz alta.</p>
           <p style="margin:0; font-size:15px; line-height:1.85; color:#5C4C3F">Atendo também mulheres em situação de violência, com discrição e encaminhamento à rede de proteção quando necessário.</p>
         </div>
-        <div style="height:{{ sizes.midImgH }}; border-radius:20px; overflow:hidden"><img src="./assets/photo-consultorio.png" alt="Consultório" style="width:100%; height:100%; object-fit:cover; display:block"></div>
+        <div style="height:{{ sizes.midImgH }}; border-radius:20px; overflow:hidden"><img src="./assets/photo-detalhe-acolhimento.jpg" alt="Detalhe do consultório: mesa de apoio ao lado da poltrona" style="width:100%; height:100%; object-fit:cover; display:block"></div>
       </div>
     </section>
     </sc-if>
@@ -305,8 +300,8 @@
     <section style="padding:0 {{ pad.x }} 90px; display:flex; flex-direction:column; gap:26px">
       <h2 style="margin:0; font-family:'Newsreader',serif; font-weight:400; font-size:{{ sizes.h2xs }}; color:#2A211B">Contextos atendidos</h2>
       <div style="display:grid; grid-template-columns:{{ grid.fourUp }}; gap:16px">
-        <div style="background:#FFFAF2; border-radius:16px; padding:26px 22px; display:flex; flex-direction:column; gap:8px"><span style="font-family:'Newsreader',serif; font-size:20px; color:#B96A4B">01</span><span style="font-size:15px; color:#2A211B; font-weight:600">Avaliação terapêutica</span><span style="font-size:13px; line-height:1.65; color:#5C4C3F">Escuta da história de vida, sintomas e recursos pessoais; plano terapêutico individualizado.</span></div>
-        <div style="background:#FFFAF2; border-radius:16px; padding:26px 22px; display:flex; flex-direction:column; gap:8px"><span style="font-family:'Newsreader',serif; font-size:20px; color:#B96A4B">02</span><span style="font-size:15px; color:#2A211B; font-weight:600">Neuropsicológica</span><span style="font-size:13px; line-height:1.65; color:#5C4C3F">Atenção, memória, linguagem, raciocínio e funções executivas.</span></div>
+        <div style="background:#FFFAF2; border-radius:16px; padding:26px 22px; display:flex; flex-direction:column; gap:8px"><span style="font-family:'Newsreader',serif; font-size:20px; color:#B96A4B">01</span><span style="font-size:15px; color:#2A211B; font-weight:600">Avaliação terapêutica</span><span style="font-size:13px; line-height:1.65; color:#5C4C3F">Integra avaliação e intervenção: o próprio processo avaliativo já tem efeito terapêutico.</span></div>
+        <div style="background:#FFFAF2; border-radius:16px; padding:26px 22px; display:flex; flex-direction:column; gap:8px"><span style="font-family:'Newsreader',serif; font-size:20px; color:#B96A4B">02</span><span style="font-size:15px; color:#2A211B; font-weight:600">Neuropsicológica</span><span style="font-size:13px; line-height:1.65; color:#5C4C3F">Funcionamento cognitivo, emocional e comportamental — a relação entre cérebro e comportamento.</span></div>
         <div style="background:#FFFAF2; border-radius:16px; padding:26px 22px; display:flex; flex-direction:column; gap:8px"><span style="font-family:'Newsreader',serif; font-size:20px; color:#B96A4B">03</span><span style="font-size:15px; color:#2A211B; font-weight:600">Infantojuvenil</span><span style="font-size:13px; line-height:1.65; color:#5C4C3F">Aprendizagem, comportamento, neurodesenvolvimento e altas habilidades.</span></div>
         <div style="background:#FFFAF2; border-radius:16px; padding:26px 22px; display:flex; flex-direction:column; gap:8px"><span style="font-family:'Newsreader',serif; font-size:20px; color:#B96A4B">04</span><span style="font-size:15px; color:#2A211B; font-weight:600">Orientação profissional</span><span style="font-size:13px; line-height:1.65; color:#5C4C3F">Interesses e aptidões — subsídios para decidir, não a definição da profissão.</span></div>
         <div style="background:#FFFAF2; border-radius:16px; padding:26px 22px; display:flex; flex-direction:column; gap:8px"><span style="font-family:'Newsreader',serif; font-size:20px; color:#B96A4B">05</span><span style="font-size:15px; color:#2A211B; font-weight:600">Procedimentos cirúrgicos</span><span style="font-size:13px; line-height:1.65; color:#5C4C3F">Bariátrica, afirmação de gênero, cirurgias plásticas e transplantes.</span></div>
@@ -314,17 +309,30 @@
         <div style="background:#FFFAF2; border-radius:16px; padding:26px 22px; display:flex; flex-direction:column; gap:8px"><span style="font-family:'Newsreader',serif; font-size:20px; color:#B96A4B">07</span><span style="font-size:15px; color:#2A211B; font-weight:600">Trânsito</span><span style="font-size:13px; line-height:1.65; color:#5C4C3F">Primeira CNH, mudança de categoria e atividade remunerada (EAR).</span></div>
         <div style="background:#FFFAF2; border-radius:16px; padding:26px 22px; display:flex; flex-direction:column; gap:8px"><span style="font-family:'Newsreader',serif; font-size:20px; color:#B96A4B">08</span><span style="font-size:15px; color:#2A211B; font-weight:600">Manuseio de arma de fogo</span><span style="font-size:13px; line-height:1.65; color:#5C4C3F">Aquisição, registro, posse e porte, conforme CFP e Polícia Federal.</span></div>
       </div>
+      <div style="display:grid; grid-template-columns:{{ grid.twoUp }}; gap:16px; margin-top:10px">
+        <div style="background:#FFFAF2; border-radius:18px; padding:30px 32px; display:flex; flex-direction:column; gap:14px">
+          <div style="font-size:13px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#B96A4B">Avaliação terapêutica</div>
+          <p style="margin:0; font-size:15px; line-height:1.8; color:#5C4C3F">Um modelo de avaliação psicológica que vai além do diagnóstico tradicional: avaliação e intervenção caminham juntas, de modo que o próprio processo avaliativo já produz um efeito terapêutico. Pode ser procurada em diferentes contextos:</p>
+          <div style="display:flex; gap:8px; flex-wrap:wrap"><span style="background:#F3E4CE; padding:8px 14px; border-radius:999px; font-size:13px; line-height:1.5; color:#5C4C3F">Busca por autoconhecimento</span><span style="background:#F3E4CE; padding:8px 14px; border-radius:999px; font-size:13px; line-height:1.5; color:#5C4C3F">Crises e transições — luto, separação, mudanças</span><span style="background:#F3E4CE; padding:8px 14px; border-radius:999px; font-size:13px; line-height:1.5; color:#5C4C3F">Queixas difusas ou pouco claras</span><span style="background:#F3E4CE; padding:8px 14px; border-radius:999px; font-size:13px; line-height:1.5; color:#5C4C3F">Dificuldade de adesão à psicoterapia</span><span style="background:#F3E4CE; padding:8px 14px; border-radius:999px; font-size:13px; line-height:1.5; color:#5C4C3F">Início de atendimento, para compreender melhor o caso</span><span style="background:#F3E4CE; padding:8px 14px; border-radius:999px; font-size:13px; line-height:1.5; color:#5C4C3F">Situações que exigem reflexão para uma tomada de decisão</span></div>
+        </div>
+        <div style="background:#FFFAF2; border-radius:18px; padding:30px 32px; display:flex; flex-direction:column; gap:14px">
+          <div style="font-size:13px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#B96A4B">Avaliação neuropsicológica</div>
+          <p style="margin:0; font-size:15px; line-height:1.8; color:#5C4C3F">Investiga o funcionamento cognitivo, emocional e comportamental, relacionando cérebro e comportamento — atenção, memória, linguagem, raciocínio e funções executivas. É aplicada, entre outros contextos, em:</p>
+          <div style="display:flex; gap:8px; flex-wrap:wrap"><span style="background:#F3E4CE; padding:8px 14px; border-radius:999px; font-size:13px; line-height:1.5; color:#5C4C3F">Transtornos do neurodesenvolvimento (TDAH, TEA)</span><span style="background:#F3E4CE; padding:8px 14px; border-radius:999px; font-size:13px; line-height:1.5; color:#5C4C3F">Transtornos psiquiátricos (depressão, ansiedade)</span><span style="background:#F3E4CE; padding:8px 14px; border-radius:999px; font-size:13px; line-height:1.5; color:#5C4C3F">Demências (como Alzheimer)</span><span style="background:#F3E4CE; padding:8px 14px; border-radius:999px; font-size:13px; line-height:1.5; color:#5C4C3F">Lesões cerebrais (TCE, AVC)</span></div>
+        </div>
+      </div>
       <div style="background:#FFFAF2; border-radius:18px; padding:30px 32px; display:flex; flex-direction:column; gap:12px; margin-top:10px">
         <div style="font-size:13px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#B96A4B">Como é o processo</div>
-        <p style="margin:0; font-size:15px; line-height:1.8; color:#5C4C3F">Entrevistas clínicas, observação e, quando necessário, testes psicológicos aprovados pelo Conselho Federal de Psicologia. Ao final, uma devolutiva e a entrega do documento — laudo, atestado ou parecer, conforme a finalidade.</p>
+        <p style="margin:0; font-size:15px; line-height:1.8; color:#5C4C3F">Entrevistas clínicas, observação e, quando necessário, testes psicológicos aprovados pelo Conselho Federal de Psicologia. Ao final, uma devolutiva e a entrega do documento psicológico adequado à finalidade, elaborado de acordo com a legislação do CFP.</p>
       </div>
     </section>
     </sc-if>
 
     <sc-if value="{{ isOrientacao }}">
     <section style="padding:0 {{ pad.x }} 90px; display:flex; flex-direction:column; gap:22px; max-width:900px">
-      <p style="margin:0; font-size:15.5px; line-height:1.85; color:#5C4C3F">Seja na escolha do primeiro curso, numa mudança de carreira ou na chegada da aposentadoria, esse é um trabalho de autoconhecimento: entender interesses, valores e aptidões para decidir com mais consciência.</p>
+      <p style="margin:0; font-size:15.5px; line-height:1.85; color:#5C4C3F">A orientação profissional é um processo psicológico que ajuda a pessoa a escolher, repensar ou redirecionar sua carreira, considerando interesses, habilidades, personalidade e a realidade de vida de cada um.</p>
       <p style="margin:0; font-size:15.5px; line-height:1.85; color:#5C4C3F">O processo não define a profissão por você — oferece subsídios para que a decisão seja sua, mais informada e menos ansiosa.</p>
+      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:4px"><span style="background:#F3E4CE; padding:8px 14px; border-radius:999px; font-size:13px; line-height:1.5; color:#5C4C3F">Adolescentes na escolha do curso</span><span style="background:#F3E4CE; padding:8px 14px; border-radius:999px; font-size:13px; line-height:1.5; color:#5C4C3F">Universitários com dúvidas ou insatisfação</span><span style="background:#F3E4CE; padding:8px 14px; border-radius:999px; font-size:13px; line-height:1.5; color:#5C4C3F">Transição de carreira</span><span style="background:#F3E4CE; padding:8px 14px; border-radius:999px; font-size:13px; line-height:1.5; color:#5C4C3F">Aposentadoria</span></div>
     </section>
     </sc-if>
 
@@ -376,6 +384,10 @@
           <div style="font-size:16px; line-height:1.7; color:#2A211B">Rua 15 de Novembro, 4 — sala 818<br>Edifício Plaza Corporate Offices<br>Centro · Niterói · RJ</div>
           <div style="font-size:13.5px; line-height:1.7; color:#5C4C3F">Online para todo o Brasil. Nota fiscal para reembolso do plano de saúde.</div>
         </div>
+        <div style="background:#FFFAF2; border-radius:20px; padding:26px 24px; display:flex; flex-direction:column; gap:14px">
+          <div style="font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#8A6A3E">Como identificar a sala</div>
+          <div style="border-radius:14px; overflow:hidden"><img src="./assets/photo-placa-818.jpg" alt="Placa da sala 818 com o nome Danielly Curione" style="width:100%; height:auto; display:block"></div>
+        </div>
       </div>
     </section>
     </sc-if>
@@ -423,7 +435,7 @@
           <p style="margin:0; font-size:16px; line-height:1.85; color:#5C4C3F; max-width:52ch">A sala 818, no Plaza Corporate Offices, em Niterói, está disponível para sublocação a outros profissionais da saúde. Um espaço acolhedor, com estrutura completa, pronto para atendimentos.</p>
           <span style="background:#C8871F; color:#FFF9F0; padding:16px 32px; border-radius:999px; font-weight:700; font-size:15px; cursor:pointer; align-self:flex-start" onClick="{{ waSublocacao }}">Consultar disponibilidade</span>
         </div>
-        <div style="min-height:{{ sizes.midImgH }}; border-radius:24px; overflow:hidden"><img src="./assets/photo-consultorio.png" alt="Sala 818" style="width:100%; height:100%; object-fit:cover; display:block"></div>
+        <div style="min-height:{{ sizes.midImgH }}; border-radius:24px; overflow:hidden"><img src="./assets/photo-sala-mesa.jpg" alt="Sala 818: mesa redonda de trabalho e biombo" style="width:100%; height:100%; object-fit:cover; display:block"></div>
       </div>
       <div style="padding:0 {{ pad.x }} 90px; display:grid; grid-template-columns:{{ grid.threeUp }}; gap:20px">
         <div style="background:#FFFAF2; border-radius:18px; padding:28px 26px; display:flex; flex-direction:column; gap:8px"><div style="font-size:15px; color:#2A211B; font-weight:600">Localização</div><p style="margin:0; font-size:14px; line-height:1.7; color:#5C4C3F">Plaza Corporate Offices, sala 818 — Centro, Niterói. Fácil acesso e estacionamento no prédio.</p></div>
@@ -545,7 +557,7 @@ class Component extends DCLogic {
       adultos: { eyebrow: 'Psicoterapia para adultos', title: 'Um tempo para organizar o que você sente', intro: 'Ansiedade, luto, relações, trabalho e as perguntas que insistem em voltar — a psicoterapia é um espaço semanal para pensar junto, no seu ritmo.' },
       criancas: { eyebrow: 'Crianças, adolescentes e idosos', title: 'Uma escuta adequada a cada fase da vida', intro: 'Cada idade tem sua forma de dizer o que sente: o brincar na infância, as perguntas da adolescência, a memória e as perdas no envelhecer. O atendimento acompanha esse tempo, com a família próxima quando é preciso.' },
       casal: { eyebrow: 'Terapia de casal', title: 'Um espaço para que os dois possam falar e ser escutados', intro: 'Atendimento presencial em Niterói ou online, para casais que atravessam impasses, crises ou mudanças na vida a dois.' },
-      avaliacao: { eyebrow: 'Avaliação psicológica', title: 'Um processo cuidadoso para compreender o que está em jogo', intro: 'Entrevistas clínicas, observação e, quando necessário, testes aprovados pelo Conselho Federal de Psicologia — reunidos no documento adequado a cada finalidade, do acompanhamento clínico aos laudos exigidos por lei.' },
+      avaliacao: { eyebrow: 'Avaliação psicológica', title: 'Um processo cuidadoso para compreender o que está em jogo', intro: 'Entrevistas clínicas, observação e, quando necessário, testes aprovados pelo Conselho Federal de Psicologia — reunidos no documento psicológico adequado a cada finalidade, conforme prevê a legislação do CFP.' },
       orientacao: { eyebrow: 'Orientação profissional, de carreira e aposentadoria', title: 'Decisões mais conscientes sobre o seu caminho profissional', intro: 'Apoio ao autoconhecimento nas escolhas de curso, transições de carreira e na chegada da aposentadoria.' }
     };
 
