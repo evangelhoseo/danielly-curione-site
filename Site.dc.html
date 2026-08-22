@@ -185,7 +185,6 @@
           <div style="background:#FBF3E8; border-radius:18px; padding:28px 26px; display:flex; flex-direction:column; gap:10px; cursor:pointer" onClick="{{ nav.casal }}"><div style="font-family:'Newsreader',serif; font-size:25px; color:#2A211B">Terapia de casal</div><p style="margin:0; font-size:14.5px; line-height:1.75; color:#5C4C3F">Um espaço para que os dois possam falar e ser escutados.</p><span style="font-size:13px; font-weight:700; color:#B96A4B; margin-top:6px">Saber mais →</span></div>
           <div style="background:#FBF3E8; border-radius:18px; padding:28px 26px; display:flex; flex-direction:column; gap:10px; cursor:pointer" onClick="{{ nav.avaliacao }}"><div style="font-family:'Newsreader',serif; font-size:25px; color:#2A211B">Avaliação psicológica</div><p style="margin:0; font-size:14.5px; line-height:1.75; color:#5C4C3F">Oito contextos, do acompanhamento clínico aos documentos psicológicos previstos em lei.</p><span style="font-size:13px; font-weight:700; color:#B96A4B; margin-top:6px">Saber mais →</span></div>
           <div style="background:#FBF3E8; border-radius:18px; padding:28px 26px; display:flex; flex-direction:column; gap:10px; cursor:pointer" onClick="{{ nav.orientacao }}"><div style="font-family:'Newsreader',serif; font-size:25px; color:#2A211B">Orientação profissional</div><p style="margin:0; font-size:14.5px; line-height:1.75; color:#5C4C3F">Escolhas de curso, transições de carreira e aposentadoria.</p><span style="font-size:13px; font-weight:700; color:#B96A4B; margin-top:6px">Saber mais →</span></div>
-          <div style="background:#E8D5BC; border-radius:18px; padding:28px 26px; display:flex; flex-direction:column; gap:10px; justify-content:center; cursor:pointer" onClick="{{ openLead }}"><div style="font-family:'Newsreader',serif; font-style:italic; font-size:23px; color:#2A211B">Não sabe por onde começar?</div><p style="margin:0; font-size:14.5px; line-height:1.75; color:#5C4C3F">Escreva no WhatsApp. Conversamos antes de marcar.</p></div>
         </div>
       </div>
 
@@ -257,7 +256,9 @@
     <section style="padding:{{ pad.top }} {{ pad.x }} 90px; display:flex; flex-direction:column; gap:22px; max-width:900px">
       <div style="font-size:13px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#B96A4B">{{ servicePage.eyebrow }}</div>
       <h1 style="margin:0; font-family:'Newsreader',serif; font-weight:400; font-size:{{ sizes.h1xs }}; line-height:1.2; color:#2A211B">{{ servicePage.title }}</h1>
+      <sc-if value="{{ hasIntro }}">
       <p style="margin:0; font-size:16.5px; line-height:1.85; color:#5C4C3F; max-width:60ch">{{ servicePage.intro }}</p>
+      </sc-if>
       <span style="background:#C8871F; color:#FFF9F0; padding:16px 32px; border-radius:999px; font-weight:700; font-size:15px; cursor:pointer; align-self:flex-start; margin-top:8px" onClick="{{ openLead }}">Agendar pelo WhatsApp</span>
     </section>
     </sc-if>
@@ -273,12 +274,12 @@
     <section style="padding:0 {{ pad.x }} 90px; display:flex; flex-direction:column; gap:60px">
       <div style="display:flex; flex-direction:column; gap:16px; max-width:760px">
         <h2 style="margin:0; font-family:'Newsreader',serif; font-weight:400; font-size:30px; color:#2A211B">Crianças</h2>
-        <p style="margin:0; font-size:15.5px; line-height:1.85; color:#5C4C3F">O atendimento infantil usa o brincar e o desenho como linguagem, já que a criança ainda não tem todas as palavras para o que sente. Os pais participam do processo, com orientações sobre como apoiar em casa.</p>
+        <p style="margin:0; font-size:15.5px; line-height:1.85; color:#5C4C3F">O atendimento infantil usa o brincar e o desenho como linguagem, já que a criança ainda não tem todas as palavras para o que sente.</p>
       </div>
       <div style="display:flex; flex-direction:column; gap:16px; max-width:760px">
         <h2 style="margin:0; font-family:'Newsreader',serif; font-weight:400; font-size:30px; color:#2A211B">Adolescentes</h2>
         <p style="margin:0; font-size:15.5px; line-height:1.85; color:#5C4C3F">A adolescência é uma fase de intensas transformações físicas, emocionais e sociais. Nesse período, surgem questionamentos sobre identidade, autoestima, relações familiares, amizades, escolhas profissionais e tantos outros desafios que podem gerar ansiedade, tristeza ou dificuldades de adaptação.</p>
-        <p style="margin:0; font-size:15.5px; line-height:1.85; color:#5C4C3F">Na psicoterapia com adolescentes, ofereço um espaço seguro, acolhedor e sem julgamentos, onde ele ou ela pode falar livremente sobre seus sentimentos e experiências, desenvolvendo recursos internos para enfrentar as demandas dessa etapa da vida.</p>
+        <p style="margin:0; font-size:15.5px; line-height:1.85; color:#5C4C3F">Na psicoterapia com adolescentes, ofereço um espaço seguro, acolhedor e sem julgamentos, onde ele ou ela possa falar livremente sobre seus sentimentos e experiências, desenvolvendo recursos internos para enfrentar as demandas dessa etapa da vida.</p>
       </div>
       <div style="display:flex; flex-direction:column; gap:16px; max-width:760px">
         <h2 style="margin:0; font-family:'Newsreader',serif; font-weight:400; font-size:30px; color:#2A211B">Idosos</h2>
@@ -291,19 +292,20 @@
     <sc-if value="{{ isCasal }}">
     <section style="padding:0 {{ pad.x }} 90px; display:flex; flex-direction:column; gap:22px; max-width:900px">
       <p style="margin:0; font-size:15.5px; line-height:1.85; color:#5C4C3F">O atendimento de casais é um espaço de escuta mútua, acolhedor e sem julgamentos, onde ambos têm a oportunidade de falar e serem ouvidos.</p>
-      <p style="margin:0; font-size:15.5px; line-height:1.85; color:#5C4C3F">A proposta é ajudar o casal a compreender seus conflitos, melhorar a comunicação, resgatar o vínculo afetivo e fortalecer o relacionamento diante de impasses, crises ou mudanças na vida a dois. A psicanálise, como base da escuta, permite investigar o que está em jogo no relacionamento, acolhendo as individualidades de cada um e a dinâmica da relação.</p>
-      <p style="margin:0; font-size:15.5px; line-height:1.85; color:#5C4C3F">Esse processo não tem como objetivo "salvar o casal", mas sim abrir espaço para que cada um possa compreender o lugar que ocupa na relação e o que deseja construir a partir disso.</p>
+      <p style="margin:0; font-size:15.5px; line-height:1.85; color:#5C4C3F">A proposta é ajudar o casal a compreender seus conflitos, melhorar a comunicação, resgatar o vínculo afetivo e fortalecer o relacionamento diante de impasses, crises ou mudanças na vida a dois.</p>
     </section>
     </sc-if>
 
     <sc-if value="{{ isAvaliacao }}">
     <section style="padding:0 {{ pad.x }} 90px; display:flex; flex-direction:column; gap:26px">
+      <p style="margin:0; font-size:15.5px; line-height:1.85; color:#5C4C3F; max-width:70ch">Por meio da escuta, da observação e, quando necessário, de instrumentos específicos, esse processo ajuda a dar sentido às vivências e necessidades individuais.</p>
+      <p style="margin:0; font-size:15.5px; line-height:1.85; color:#5C4C3F; max-width:70ch">Pode acontecer em diferentes contextos, sempre com ética e responsabilidade, oferecendo ao final uma devolutiva que acolhe, orienta e favorece o autoconhecimento.</p>
       <h2 style="margin:0; font-family:'Newsreader',serif; font-weight:400; font-size:{{ sizes.h2xs }}; color:#2A211B">Contextos atendidos</h2>
       <div style="display:grid; grid-template-columns:{{ grid.fourUp }}; gap:16px">
         <div style="background:#FFFAF2; border-radius:16px; padding:26px 22px; display:flex; flex-direction:column; gap:8px"><span style="font-family:'Newsreader',serif; font-size:20px; color:#B96A4B">01</span><span style="font-size:15px; color:#2A211B; font-weight:600">Avaliação terapêutica</span><span style="font-size:13px; line-height:1.65; color:#5C4C3F">Integra avaliação e intervenção: o próprio processo avaliativo já tem efeito terapêutico.</span></div>
         <div style="background:#FFFAF2; border-radius:16px; padding:26px 22px; display:flex; flex-direction:column; gap:8px"><span style="font-family:'Newsreader',serif; font-size:20px; color:#B96A4B">02</span><span style="font-size:15px; color:#2A211B; font-weight:600">Neuropsicológica</span><span style="font-size:13px; line-height:1.65; color:#5C4C3F">Funcionamento cognitivo, emocional e comportamental — a relação entre cérebro e comportamento.</span></div>
         <div style="background:#FFFAF2; border-radius:16px; padding:26px 22px; display:flex; flex-direction:column; gap:8px"><span style="font-family:'Newsreader',serif; font-size:20px; color:#B96A4B">03</span><span style="font-size:15px; color:#2A211B; font-weight:600">Infantojuvenil</span><span style="font-size:13px; line-height:1.65; color:#5C4C3F">Aprendizagem, comportamento, neurodesenvolvimento e altas habilidades.</span></div>
-        <div style="background:#FFFAF2; border-radius:16px; padding:26px 22px; display:flex; flex-direction:column; gap:8px"><span style="font-family:'Newsreader',serif; font-size:20px; color:#B96A4B">04</span><span style="font-size:15px; color:#2A211B; font-weight:600">Orientação profissional</span><span style="font-size:13px; line-height:1.65; color:#5C4C3F">Interesses e aptidões — subsídios para decidir, não a definição da profissão.</span></div>
+        <div style="background:#FFFAF2; border-radius:16px; padding:26px 22px; display:flex; flex-direction:column; gap:8px"><span style="font-family:'Newsreader',serif; font-size:20px; color:#B96A4B">04</span><span style="font-size:15px; color:#2A211B; font-weight:600">Orientação profissional</span><span style="font-size:13px; line-height:1.65; color:#5C4C3F">Interesses e aptidões: auxiliam na decisão, mas não determinam a profissão.</span></div>
         <div style="background:#FFFAF2; border-radius:16px; padding:26px 22px; display:flex; flex-direction:column; gap:8px"><span style="font-family:'Newsreader',serif; font-size:20px; color:#B96A4B">05</span><span style="font-size:15px; color:#2A211B; font-weight:600">Procedimentos cirúrgicos</span><span style="font-size:13px; line-height:1.65; color:#5C4C3F">Bariátrica, afirmação de gênero, cirurgias plásticas e transplantes.</span></div>
         <div style="background:#FFFAF2; border-radius:16px; padding:26px 22px; display:flex; flex-direction:column; gap:8px"><span style="font-family:'Newsreader',serif; font-size:20px; color:#B96A4B">06</span><span style="font-size:15px; color:#2A211B; font-weight:600">Contexto jurídico</span><span style="font-size:13px; line-height:1.65; color:#5C4C3F">Guarda, convivência, adoção, capacidade civil e danos psíquicos.</span></div>
         <div style="background:#FFFAF2; border-radius:16px; padding:26px 22px; display:flex; flex-direction:column; gap:8px"><span style="font-family:'Newsreader',serif; font-size:20px; color:#B96A4B">07</span><span style="font-size:15px; color:#2A211B; font-weight:600">Trânsito</span><span style="font-size:13px; line-height:1.65; color:#5C4C3F">Primeira CNH, mudança de categoria e atividade remunerada (EAR).</span></div>
@@ -554,10 +556,10 @@ class Component extends DCLogic {
     Object.keys(navMap).forEach(k => { navWeight[k] = k === active ? 700 : 400; navColor[k] = k === active ? '#B96A4B' : '#5C4C3F'; });
 
     const servicePages = {
-      adultos: { eyebrow: 'Psicoterapia para adultos', title: 'Um tempo para organizar o que você sente', intro: 'Ansiedade, luto, relações, trabalho e as perguntas que insistem em voltar — a psicoterapia é um espaço semanal para pensar junto, no seu ritmo.' },
+      adultos: { eyebrow: 'Psicoterapia para adultos', title: 'Um tempo para organizar o que você sente', intro: '' },
       criancas: { eyebrow: 'Crianças, adolescentes e idosos', title: 'Uma escuta adequada a cada fase da vida', intro: 'Cada idade tem sua forma de dizer o que sente: o brincar na infância, as perguntas da adolescência, a memória e as perdas no envelhecer. O atendimento acompanha esse tempo, com a família próxima quando é preciso.' },
-      casal: { eyebrow: 'Terapia de casal', title: 'Um espaço para que os dois possam falar e ser escutados', intro: 'Atendimento presencial em Niterói ou online, para casais que atravessam impasses, crises ou mudanças na vida a dois.' },
-      avaliacao: { eyebrow: 'Avaliação psicológica', title: 'Um processo cuidadoso para compreender o que está em jogo', intro: 'Entrevistas clínicas, observação e, quando necessário, testes aprovados pelo Conselho Federal de Psicologia — reunidos no documento psicológico adequado a cada finalidade, conforme prevê a legislação do CFP.' },
+      casal: { eyebrow: 'Terapia de casal', title: 'Um espaço para que os dois possam falar e ser escutados', intro: 'Atendimento presencial em Niterói, para casais que atravessam impasses, crises ou mudanças na vida a dois.' },
+      avaliacao: { eyebrow: 'Avaliação psicológica', title: 'Um processo cuidadoso para compreensão das individualidades', intro: 'A avaliação psicológica é um cuidado sensível e acolhedor, onde o psicólogo busca compreender, com atenção e respeito, os aspectos emocionais, cognitivos e comportamentais de cada pessoa.' },
       orientacao: { eyebrow: 'Orientação profissional, de carreira e aposentadoria', title: 'Decisões mais conscientes sobre o seu caminho profissional', intro: 'Apoio ao autoconhecimento nas escolhas de curso, transições de carreira e na chegada da aposentadoria.' }
     };
 
@@ -582,6 +584,7 @@ class Component extends DCLogic {
       isCasal: p === 'casal', isAvaliacao: p === 'avaliacao', isOrientacao: p === 'orientacao', isBlog: p === 'blog',
       isContato: p === 'contato', isLgpd: p === 'lgpd', isSublocacao: p === 'sublocacao',
       isServicePage: !!servicePages[p], servicePage: servicePages[p] || { eyebrow: '', title: '', intro: '' },
+      hasIntro: !!(servicePages[p] && servicePages[p].intro),
       nome: this.state.nome, servico: this.state.servico, modalidade: this.state.modalidade, periodo: this.state.periodo,
       setNome: (e) => this.setState({ nome: e.target.value }),
       setServico: (e) => this.setState({ servico: e.target.value }),
