@@ -1,5 +1,4 @@
-# Endereço de revisão (GitHub Pages) — o site NÃO deve ser indexado enquanto estiver aqui.
-# Ao publicar no domínio próprio, apagar o Disallow abaixo e o <meta name="robots" content="noindex">
-# do Site.dc.html / index.html.
+# Endereco de revisao: fora do Google de proposito.
+# Ao ligar o dominio, por INDEXAR = True no build.py e rodar de novo.
 User-agent: *
 Disallow: /

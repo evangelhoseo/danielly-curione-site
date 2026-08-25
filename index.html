@@ -9,10 +9,6 @@
 <meta name="author" content="Danielly Curione">
 <meta name="theme-color" content="#FBF3E8">
 
-<!-- ATENÇÃO: enquanto o site está no endereço de revisão do GitHub Pages, ele fica FORA do Google
-     de propósito (noindex + robots.txt). Ao publicar no domínio próprio (daniellycurionepsicologia.com):
-     1) apagar a linha do robots abaixo; 2) trocar as URLs de og:url/og:image/canonical/JSON-LD;
-     3) apagar o Disallow do robots.txt. -->
 <meta name="robots" content="noindex, nofollow">
 <link rel="canonical" href="https://evangelhoseo.github.io/danielly-curione-site/">
 
@@ -20,12 +16,12 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Danielly Curione — Psicologia e Desenvolvimento Humano">
 <meta property="og:url" content="https://evangelhoseo.github.io/danielly-curione-site/">
-<meta property="og:title" content="Danielly Curione — Psicologia e Desenvolvimento Humano">
-<meta property="og:description" content="Um espaço de escuta ética e acolhedora para cuidar da sua saúde mental. Psicoterapia para adultos, adolescentes, idosos e casais — online e presencial em Niterói.">
+<meta property="og:title" content="Danielly Curione — Psicóloga e Psicanalista em Niterói | CRP 05/77951">
+<meta property="og:description" content="Psicoterapia para adultos, adolescentes, crianças, idosos e casais, avaliação psicológica e orientação profissional. Atendimento online e presencial em Niterói-RJ. CRP 05/77951.">
 <meta property="og:image" content="https://evangelhoseo.github.io/danielly-curione-site/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Danielly Curione — Psicologia e Desenvolvimento Humano">
-<meta name="twitter:description" content="Um espaço de escuta ética e acolhedora para cuidar da sua saúde mental. Psicoterapia para adultos, adolescentes, idosos e casais — online e presencial em Niterói.">
+<meta name="twitter:title" content="Danielly Curione — Psicóloga e Psicanalista em Niterói | CRP 05/77951">
+<meta name="twitter:description" content="Psicoterapia para adultos, adolescentes, crianças, idosos e casais, avaliação psicológica e orientação profissional. Atendimento online e presencial em Niterói-RJ. CRP 05/77951.">
 <meta name="twitter:image" content="https://evangelhoseo.github.io/danielly-curione-site/og-image.png">
 
 <link rel="icon" type="image/svg+xml" href="./logo-simbolo.svg">
@@ -46,10 +42,13 @@
   ::selection { background:#E8D5BC; }
 </style>
 
+<script src="./support.js"></script>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Psychologist",
+  "@id": "https://evangelhoseo.github.io/danielly-curione-site/#consultorio",
   "name": "Danielly Curione — Psicologia e Desenvolvimento Humano",
   "legalName": "Danielly Curione Psicologia e Desenvolvimento Humano LTDA",
   "taxID": "61.487.467/0001-00",
@@ -90,7 +89,7 @@
 }
 </script>
 
-<script src="./support.js"></script>
+<script>window.__DC_PAGE__="home";window.__DC_BASE__="./";</script>
 </head>
 <body>
 <x-dc>
@@ -113,24 +112,24 @@
 
     <sc-if value="{{ isDesktop }}">
       <div style="display:flex; align-items:center; gap:20px; font-size:13.5px; color:#5C4C3F; flex-wrap:wrap">
-        <span style="cursor:pointer; font-weight:{{ navWeight.home }}; color:{{ navColor.home }}" onClick="{{ nav.home }}">Início</span>
-        <span style="cursor:pointer; font-weight:{{ navWeight.sobre }}; color:{{ navColor.sobre }}" onClick="{{ nav.sobre }}">Sobre</span>
+        <a href="{{ hrefs.home }}" style="cursor:pointer; font-weight:{{ navWeight.home }}; color:{{ navColor.home }}; text-decoration:none">Início</a>
+        <a href="{{ hrefs.sobre }}" style="cursor:pointer; font-weight:{{ navWeight.sobre }}; color:{{ navColor.sobre }}; text-decoration:none">Sobre</a>
         <span style="position:relative; cursor:pointer; font-weight:{{ navWeight.atendimentos }}; color:{{ navColor.atendimentos }}; padding:10px 0" onMouseEnter="{{ openMenu }}" onMouseLeave="{{ closeMenu }}">
           Atendimentos ⌄
           <sc-if value="{{ menuOpen }}">
             <div style="position:absolute; top:100%; left:0; padding-top:8px; z-index:35">
               <div style="background:#FFFAF2; border:1px solid #EBDCC6; border-radius:14px; padding:10px; display:flex; flex-direction:column; gap:4px; min-width:230px; box-shadow:0 12px 30px rgba(42,33,27,.12)">
-                <span style="padding:10px 14px; border-radius:10px; color:#2A211B; font-weight:400" onClick="{{ nav.adultos }}">Psicoterapia para adultos</span>
-                <span style="padding:10px 14px; border-radius:10px; color:#2A211B; font-weight:400" onClick="{{ nav.criancas }}">Crianças, adolescentes e idosos</span>
-                <span style="padding:10px 14px; border-radius:10px; color:#2A211B; font-weight:400" onClick="{{ nav.casal }}">Terapia de casal</span>
+                <a href="{{ hrefs.adultos }}" style="padding:10px 14px; border-radius:10px; color:#2A211B; font-weight:400; text-decoration:none">Psicoterapia para adultos</a>
+                <a href="{{ hrefs.criancas }}" style="padding:10px 14px; border-radius:10px; color:#2A211B; font-weight:400; text-decoration:none">Crianças, adolescentes e idosos</a>
+                <a href="{{ hrefs.casal }}" style="padding:10px 14px; border-radius:10px; color:#2A211B; font-weight:400; text-decoration:none">Terapia de casal</a>
               </div>
             </div>
           </sc-if>
         </span>
-        <span style="cursor:pointer; font-weight:{{ navWeight.avaliacao }}; color:{{ navColor.avaliacao }}" onClick="{{ nav.avaliacao }}">Avaliação Psicológica</span>
-        <span style="cursor:pointer; font-weight:{{ navWeight.orientacao }}; color:{{ navColor.orientacao }}" onClick="{{ nav.orientacao }}">Orientação Profissional</span>
-        <span style="cursor:pointer; font-weight:{{ navWeight.contato }}; color:{{ navColor.contato }}" onClick="{{ nav.contato }}">Contato</span>
-        <span style="cursor:pointer; font-weight:{{ navWeight.sublocacao }}; color:{{ navColor.sublocacao }}" onClick="{{ nav.sublocacao }}">Sublocação</span>
+        <a href="{{ hrefs.avaliacao }}" style="cursor:pointer; font-weight:{{ navWeight.avaliacao }}; color:{{ navColor.avaliacao }}; text-decoration:none">Avaliação Psicológica</a>
+        <a href="{{ hrefs.orientacao }}" style="cursor:pointer; font-weight:{{ navWeight.orientacao }}; color:{{ navColor.orientacao }}; text-decoration:none">Orientação Profissional</a>
+        <a href="{{ hrefs.contato }}" style="cursor:pointer; font-weight:{{ navWeight.contato }}; color:{{ navColor.contato }}; text-decoration:none">Contato</a>
+        <a href="{{ hrefs.sublocacao }}" style="cursor:pointer; font-weight:{{ navWeight.sublocacao }}; color:{{ navColor.sublocacao }}; text-decoration:none">Sublocação</a>
       </div>
       <span style="background:#C8871F; color:#FFF9F0; padding:11px 22px; border-radius:999px; font-weight:700; font-size:13.5px; cursor:pointer; white-space:nowrap" onClick="{{ openLead }}">WhatsApp</span>
     </sc-if>
@@ -142,16 +141,16 @@
 
   <sc-if value="{{ mobileNavOpen }}">
     <div style="position:sticky; top:64px; z-index:29; background:#FFFAF2; border-bottom:1px solid #EBDCC6; padding:10px 20px 18px; display:flex; flex-direction:column; gap:2px; font-size:15px; color:#5C4C3F">
-      <span style="padding:12px 4px; font-weight:{{ navWeight.home }}; color:{{ navColor.home }}" onClick="{{ nav.home }}">Início</span>
-      <span style="padding:12px 4px; font-weight:{{ navWeight.sobre }}; color:{{ navColor.sobre }}" onClick="{{ nav.sobre }}">Sobre</span>
+      <a href="{{ hrefs.home }}" style="padding:12px 4px; font-weight:{{ navWeight.home }}; color:{{ navColor.home }}; text-decoration:none">Início</a>
+      <a href="{{ hrefs.sobre }}" style="padding:12px 4px; font-weight:{{ navWeight.sobre }}; color:{{ navColor.sobre }}; text-decoration:none">Sobre</a>
       <span style="padding:12px 4px 4px; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#9A8467">Atendimentos</span>
-      <span style="padding:10px 4px 10px 16px" onClick="{{ nav.adultos }}">Psicoterapia para adultos</span>
-      <span style="padding:10px 4px 10px 16px" onClick="{{ nav.criancas }}">Crianças, adolescentes e idosos</span>
-      <span style="padding:10px 4px 10px 16px" onClick="{{ nav.casal }}">Terapia de casal</span>
-      <span style="padding:12px 4px; font-weight:{{ navWeight.avaliacao }}; color:{{ navColor.avaliacao }}" onClick="{{ nav.avaliacao }}">Avaliação Psicológica</span>
-      <span style="padding:12px 4px; font-weight:{{ navWeight.orientacao }}; color:{{ navColor.orientacao }}" onClick="{{ nav.orientacao }}">Orientação Profissional</span>
-      <span style="padding:12px 4px; font-weight:{{ navWeight.contato }}; color:{{ navColor.contato }}" onClick="{{ nav.contato }}">Contato</span>
-      <span style="padding:12px 4px; font-weight:{{ navWeight.sublocacao }}; color:{{ navColor.sublocacao }}" onClick="{{ nav.sublocacao }}">Sublocação</span>
+      <a href="{{ hrefs.adultos }}" style="padding:10px 4px 10px 16px; text-decoration:none; color:inherit">Psicoterapia para adultos</a>
+      <a href="{{ hrefs.criancas }}" style="padding:10px 4px 10px 16px; text-decoration:none; color:inherit">Crianças, adolescentes e idosos</a>
+      <a href="{{ hrefs.casal }}" style="padding:10px 4px 10px 16px; text-decoration:none; color:inherit">Terapia de casal</a>
+      <a href="{{ hrefs.avaliacao }}" style="padding:12px 4px; font-weight:{{ navWeight.avaliacao }}; color:{{ navColor.avaliacao }}; text-decoration:none">Avaliação Psicológica</a>
+      <a href="{{ hrefs.orientacao }}" style="padding:12px 4px; font-weight:{{ navWeight.orientacao }}; color:{{ navColor.orientacao }}; text-decoration:none">Orientação Profissional</a>
+      <a href="{{ hrefs.contato }}" style="padding:12px 4px; font-weight:{{ navWeight.contato }}; color:{{ navColor.contato }}; text-decoration:none">Contato</a>
+      <a href="{{ hrefs.sublocacao }}" style="padding:12px 4px; font-weight:{{ navWeight.sublocacao }}; color:{{ navColor.sublocacao }}; text-decoration:none">Sublocação</a>
       <span style="margin-top:10px; background:#C8871F; color:#FFF9F0; padding:14px 22px; border-radius:999px; font-weight:700; font-size:14px; text-align:center" onClick="{{ openLead }}">Agendar pelo WhatsApp</span>
     </div>
   </sc-if>
@@ -170,7 +169,7 @@
             <span style="border:1px solid #B96A4B; color:#B96A4B; padding:15px 31px; border-radius:999px; font-weight:700; font-size:15px; cursor:pointer" onClick="{{ nav.atendimentosScroll }}">Conhecer atendimentos</span>
           </div>
         </div>
-        <div style="min-height:{{ sizes.heroImgH }}; border-radius:24px; overflow:hidden; position:relative"><img src="./assets/photo-retrato.jpg" alt="Danielly Curione" style="width:100%; height:100%; object-fit:cover; display:block"></div>
+        <div style="min-height:{{ sizes.heroImgH }}; border-radius:24px; overflow:hidden; position:relative"><img decoding="async" width="1024" height="612" src="./assets/photo-retrato.jpg" alt="Danielly Curione" style="width:100%; height:100%; object-fit:cover; display:block"></div>
       </div>
 
       <div style="padding:0 {{ pad.x }} 64px; display:flex; gap:10px; flex-wrap:wrap">
@@ -205,7 +204,7 @@
       </div>
 
       <div style="padding:{{ pad.hero }}; display:grid; grid-template-columns:{{ grid.twoUp }}; gap:{{ gaps.md }}; align-items:center">
-        <div style="height:{{ sizes.midImgH }}; border-radius:24px; overflow:hidden"><img src="./assets/photo-sala-atendimento.jpg" alt="Sala de atendimento do consultório, com sofá e poltrona" style="width:100%; height:100%; object-fit:cover; display:block"></div>
+        <div style="height:{{ sizes.midImgH }}; border-radius:24px; overflow:hidden"><img decoding="async" width="1400" height="875" src="./assets/photo-sala-atendimento.jpg" alt="Sala de atendimento do consultório, com sofá e poltrona" style="width:100%; height:100%; object-fit:cover; display:block"></div>
         <div style="display:flex; flex-direction:column; gap:16px">
           <h2 style="margin:0; font-family:'Newsreader',serif; font-weight:400; font-size:{{ sizes.h2sm }}; color:#2A211B">Um espaço reservado, em todos os sentidos</h2>
           <p style="margin:0; font-size:15.5px; line-height:1.85; color:#5C4C3F; max-width:46ch">Tudo o que é dito em sessão é protegido pelo sigilo profissional (Art. 9º do Código de Ética Profissional do Psicólogo). Presencial no Plaza Corporate Offices — sala 818, Niterói — ou online.</p>
@@ -217,7 +216,7 @@
     <sc-if value="{{ isSobre }}">
     <section>
       <div style="display:grid; grid-template-columns:{{ grid.sobreHero }}">
-        <div style="min-height:{{ sizes.heroImgH }}; overflow:hidden"><img src="./assets/photo-retrato.jpg" alt="Danielly Curione" style="width:100%; height:100%; object-fit:cover; display:block"></div>
+        <div style="min-height:{{ sizes.heroImgH }}; overflow:hidden"><img decoding="async" width="1024" height="612" src="./assets/photo-retrato.jpg" alt="Danielly Curione" style="width:100%; height:100%; object-fit:cover; display:block"></div>
         <div style="padding:{{ pad.card }}; display:flex; flex-direction:column; gap:22px; justify-content:center">
           <div style="font-size:13px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#B96A4B">Sobre</div>
           <h1 style="margin:0; font-family:'Newsreader',serif; font-weight:400; font-size:{{ sizes.h1sm }}; line-height:1.18; color:#2A211B">Escutar é um ofício que se aprende devagar.</h1>
@@ -247,7 +246,7 @@
           <p style="margin:0; font-size:15px; line-height:1.85; color:#5C4C3F">O que você conta em sessão fica em sessão. O sigilo profissional é dever previsto no Art. 9º do Código de Ética Profissional do Psicólogo e é a base que torna possível falar sem receio — inclusive sobre o que é difícil de dizer em voz alta.</p>
           <p style="margin:0; font-size:15px; line-height:1.85; color:#5C4C3F">Atendo também mulheres em situação de violência, com discrição e encaminhamento à rede de proteção quando necessário.</p>
         </div>
-        <div style="height:{{ sizes.midImgH }}; border-radius:20px; overflow:hidden"><img src="./assets/photo-detalhe-acolhimento.jpg" alt="Detalhe do consultório: mesa de apoio ao lado da poltrona" style="width:100%; height:100%; object-fit:cover; display:block"></div>
+        <div style="height:{{ sizes.midImgH }}; border-radius:20px; overflow:hidden"><img decoding="async" width="1400" height="876" src="./assets/photo-detalhe-acolhimento.jpg" alt="Detalhe do consultório: mesa de apoio ao lado da poltrona" style="width:100%; height:100%; object-fit:cover; display:block"></div>
       </div>
     </section>
     </sc-if>
@@ -388,7 +387,7 @@
         </div>
         <div style="background:#FFFAF2; border-radius:20px; padding:26px 24px; display:flex; flex-direction:column; gap:14px">
           <div style="font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#8A6A3E">Como identificar a sala</div>
-          <div style="border-radius:14px; overflow:hidden"><img src="./assets/photo-placa-818.jpg" alt="Placa da sala 818 com o nome Danielly Curione" style="width:100%; height:auto; display:block"></div>
+          <div style="border-radius:14px; overflow:hidden"><img decoding="async" width="900" height="1125" src="./assets/photo-placa-818.jpg" alt="Placa da sala 818 com o nome Danielly Curione" style="width:100%; height:auto; display:block"></div>
         </div>
       </div>
     </section>
@@ -437,7 +436,7 @@
           <p style="margin:0; font-size:16px; line-height:1.85; color:#5C4C3F; max-width:52ch">A sala 818, no Plaza Corporate Offices, em Niterói, está disponível para sublocação a outros profissionais da saúde. Um espaço acolhedor, com estrutura completa, pronto para atendimentos.</p>
           <span style="background:#C8871F; color:#FFF9F0; padding:16px 32px; border-radius:999px; font-weight:700; font-size:15px; cursor:pointer; align-self:flex-start" onClick="{{ waSublocacao }}">Consultar disponibilidade</span>
         </div>
-        <div style="min-height:{{ sizes.midImgH }}; border-radius:24px; overflow:hidden"><img src="./assets/photo-sala-mesa.jpg" alt="Sala 818: mesa redonda de trabalho e biombo" style="width:100%; height:100%; object-fit:cover; display:block"></div>
+        <div style="min-height:{{ sizes.midImgH }}; border-radius:24px; overflow:hidden"><img decoding="async" width="1400" height="875" src="./assets/photo-sala-mesa.jpg" alt="Sala 818: mesa redonda de trabalho e biombo" style="width:100%; height:100%; object-fit:cover; display:block"></div>
       </div>
       <div style="padding:0 {{ pad.x }} 90px; display:grid; grid-template-columns:{{ grid.threeUp }}; gap:20px">
         <div style="background:#FFFAF2; border-radius:18px; padding:28px 26px; display:flex; flex-direction:column; gap:8px"><div style="font-size:15px; color:#2A211B; font-weight:600">Localização</div><p style="margin:0; font-size:14px; line-height:1.7; color:#5C4C3F">Plaza Corporate Offices, sala 818 — Centro, Niterói. Fácil acesso e estacionamento no prédio.</p></div>
@@ -470,13 +469,13 @@
         </div>
       </div>
       <div style="display:flex; gap:{{ gaps.footer }}; font-size:14px; line-height:1.9; flex-wrap:wrap">
-        <div><div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#9A8467; margin-bottom:8px">Navegação</div><span style="cursor:pointer" onClick="{{ nav.home }}">Início</span><br><span style="cursor:pointer" onClick="{{ nav.sobre }}">Sobre</span><br><span style="cursor:pointer" onClick="{{ nav.avaliacao }}">Avaliação Psicológica</span><br><span style="cursor:pointer" onClick="{{ nav.orientacao }}">Orientação Profissional</span><br><span style="cursor:pointer" onClick="{{ nav.contato }}">Contato</span><br><span style="cursor:pointer" onClick="{{ nav.sublocacao }}">Sublocação</span></div>
-        <div><div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#9A8467; margin-bottom:8px">Atendimentos</div><span style="cursor:pointer" onClick="{{ nav.adultos }}">Psicoterapia para adultos</span><br><span style="cursor:pointer" onClick="{{ nav.criancas }}">Crianças, adolescentes e idosos</span><br><span style="cursor:pointer" onClick="{{ nav.casal }}">Terapia de casal</span></div>
+        <div><div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#9A8467; margin-bottom:8px">Navegação</div><a href="{{ hrefs.home }}" style="cursor:pointer; text-decoration:none; color:inherit">Início</a><br><a href="{{ hrefs.sobre }}" style="cursor:pointer; text-decoration:none; color:inherit">Sobre</a><br><a href="{{ hrefs.avaliacao }}" style="cursor:pointer; text-decoration:none; color:inherit">Avaliação Psicológica</a><br><a href="{{ hrefs.orientacao }}" style="cursor:pointer; text-decoration:none; color:inherit">Orientação Profissional</a><br><a href="{{ hrefs.contato }}" style="cursor:pointer; text-decoration:none; color:inherit">Contato</a><br><a href="{{ hrefs.sublocacao }}" style="cursor:pointer; text-decoration:none; color:inherit">Sublocação</a></div>
+        <div><div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#9A8467; margin-bottom:8px">Atendimentos</div><a href="{{ hrefs.adultos }}" style="cursor:pointer; text-decoration:none; color:inherit">Psicoterapia para adultos</a><br><a href="{{ hrefs.criancas }}" style="cursor:pointer; text-decoration:none; color:inherit">Crianças, adolescentes e idosos</a><br><a href="{{ hrefs.casal }}" style="cursor:pointer; text-decoration:none; color:inherit">Terapia de casal</a></div>
         <div><div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#9A8467; margin-bottom:8px">Contato</div>(21) 97100-8336<br>daniellycurione@gmail.com<br>@daniellycurionepsicologa<br>Rua 15 de Novembro, 4 — sala 818<br>Plaza Corporate Offices · Centro, Niterói/RJ</div>
       </div>
     </div>
     <div style="border-top:1px solid #3D332A; padding-top:16px; display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; font-size:11.5px; color:#9A8467">
-      <span>Danielly Curione · CRP 05/77951 · CNPJ 61.487.467/0001-00 · <span style="cursor:pointer; text-decoration:underline" onClick="{{ nav.lgpd }}">Política de Privacidade (LGPD)</span></span>
+      <span>Danielly Curione · CRP 05/77951 · CNPJ 61.487.467/0001-00 · <a href="{{ hrefs.lgpd }}" style="cursor:pointer; text-decoration:underline; color:inherit">Política de Privacidade (LGPD)</a></span>
       <span>Em situação de crise, ligue 188 (CVV) — atendimento gratuito, 24h.</span>
     </div>
   </div>
@@ -493,7 +492,7 @@ const PAGES = ['home','sobre','adultos','criancas','casal','avaliacao','orientac
 
 class Component extends DCLogic {
   state = {
-    page: 'home', menuOpen: false, mobileNavOpen: false, leadOpen: false,
+    page: (typeof window !== 'undefined' && window.__DC_PAGE__) || 'home', menuOpen: false, mobileNavOpen: false, leadOpen: false,
     width: typeof window !== 'undefined' ? window.innerWidth : 1280,
     nome: '', servico: 'Psicoterapia individual', modalidade: 'Online', periodo: 'Manhã'
   };
@@ -501,20 +500,35 @@ class Component extends DCLogic {
   componentDidMount() {
     this._onResize = () => this.setState({ width: window.innerWidth });
     window.addEventListener('resize', this._onResize);
+    if (window.location.hash === '#atendimentos') setTimeout(() => document.getElementById('atendimentos')?.scrollIntoView({ block: 'start' }), 80);
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize', this._onResize);
   }
 
+  base() { return (typeof window !== 'undefined' && window.__DC_BASE__) || './'; }
+
+  // Espelha a lista ROTAS do build.py. Se os dois discordarem, o menu aponta para 404.
+  hrefs() {
+    const b = this.base();
+    return {
+      home: b, sobre: b + 'sobre/', adultos: b + 'psicoterapia-adultos/',
+      criancas: b + 'criancas-adolescentes-idosos/', casal: b + 'terapia-de-casal/',
+      avaliacao: b + 'avaliacao-psicologica/', orientacao: b + 'orientacao-profissional/',
+      blog: b + 'blog/', contato: b + 'contato/', sublocacao: b + 'sublocacao-de-sala/',
+      lgpd: b + 'politica-de-privacidade/'
+    };
+  }
+
   go(page) {
-    return () => { this.setState({ page, menuOpen: false, mobileNavOpen: false }); window.scrollTo(0, 0); };
+    return () => { const h = this.hrefs()[page]; if (h) window.location.assign(h); };
   }
 
   scrollToAtendimentos() {
     return () => {
-      if (this.state.page !== 'home') { this.setState({ page: 'home' }); setTimeout(() => document.getElementById('atendimentos')?.scrollIntoView({ block: 'start' }), 60); }
-      else document.getElementById('atendimentos')?.scrollIntoView({ block: 'start' });
+      if (this.state.page !== 'home') { window.location.assign(this.hrefs().home + '#atendimentos'); return; }
+      document.getElementById('atendimentos')?.scrollIntoView({ block: 'start' });
     };
   }
 
@@ -568,6 +582,8 @@ class Component extends DCLogic {
     };
 
     return {
+      base: this.base(),
+      hrefs: this.hrefs(),
       nav: { home: this.go('home'), sobre: this.go('sobre'), adultos: this.go('adultos'), criancas: this.go('criancas'), casal: this.go('casal'), avaliacao: this.go('avaliacao'), orientacao: this.go('orientacao'), blog: this.go('blog'), contato: this.go('contato'), sublocacao: this.go('sublocacao'), lgpd: this.go('lgpd'), atendimentosScroll: this.scrollToAtendimentos() },
       waSublocacao: () => this.openWhatsApp('Olá, Danielly! Vi no site que a sala 818 está disponível para sublocação. Gostaria de saber mais sobre disponibilidade e valores.'),
       goHome: this.go('home'),

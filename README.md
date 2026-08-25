@@ -7,32 +7,53 @@ Cliente da Agência Foco Digital. Substitui o site antigo em Wix.
 - **Domínio próprio (ainda não ligado):** `daniellycurionepsicologia.com` — comprado na Wix, nunca conectado.
 - **Direção visual:** 1b "Acolhedora quente", aprovada pela cliente.
 
-## Como funciona (sem build)
+## Como funciona
 
 Export **dc-runtime** do Claude Design — mesmo padrão de `vinicolo-site` e `tarja-verde-aventuras-site`.
-100% client-side: `support.js` interpreta `<x-dc>` e carrega React/Babel do unpkg em runtime.
-Não existe etapa de build, npm ou deploy script — o que está no repo é o que o navegador serve.
+O corpo é 100% client-side: `support.js` interpreta `<x-dc>` e carrega React/Babel do unpkg em runtime.
 
-Diferença dos outros dois: aqui o site inteiro é **um arquivo só**. As 11 páginas (Início, Sobre,
-Adultos, Crianças/adolescentes/idosos, Casal, Avaliação, Orientação, Blog, Contato, Sublocação, LGPD)
-são estados de `page` no componente, não arquivos separados.
+**`Site.dc.html` é a fonte única.** As 11 páginas continuam sendo estados de `page` num único
+componente, mas cada uma vira um **arquivo HTML de verdade**, com URL e `<head>` próprios, gerado
+por `build.py`. Quem decide em que página o componente sobe é o `window.__DC_PAGE__` que o build
+injeta em cada arquivo.
 
 ```
-index.html      ← é o que o GitHub Pages serve na raiz
-Site.dc.html    ← MESMO conteúdo, com o nome .dc.html para reabrir no Claude Design
+Site.dc.html    ← FONTE. É o único arquivo que se edita à mão.
+build.py        ← gera as 11 páginas + robots.txt + sitemap.xml (+ CNAME)
+index.html      ← GERADO (home)
+sobre/          ← GERADO ... e assim por diante, uma pasta por rota
 support.js      ← runtime dc (não editar)
 .nojekyll       ← obrigatório no Pages (ver "Pegadinhas")
-robots.txt      ← bloqueia indexação enquanto está no endereço de revisão
-assets/         ← fotos reais (retrato, consultório) + logos
+assets/         ← fotos reais do consultório + retrato
 logo-*.svg      ← logos na raiz (o site referencia daqui)
 og-image.png    ← imagem de compartilhamento (WhatsApp, redes)
 design-system/  ← documentação da direção 1b: tokens, componentes, guidelines
 ```
 
-> **`index.html` e `Site.dc.html` precisam ficar idênticos.** Edite `Site.dc.html` e copie:
+> **Nunca editar os arquivos gerados.** O próximo `build.py` sobrescreve tudo. Edite `Site.dc.html`
+> e rode:
 > ```bash
-> cp Site.dc.html index.html
+> python build.py
 > ```
+
+### As rotas
+
+| Página | URL | `page` |
+|---|---|---|
+| Início | `/` | `home` |
+| Sobre | `/sobre/` | `sobre` |
+| Psicoterapia para adultos | `/psicoterapia-adultos/` | `adultos` |
+| Crianças, adolescentes e idosos | `/criancas-adolescentes-idosos/` | `criancas` |
+| Terapia de casal | `/terapia-de-casal/` | `casal` |
+| Avaliação psicológica | `/avaliacao-psicologica/` | `avaliacao` |
+| Orientação profissional | `/orientacao-profissional/` | `orientacao` |
+| Contato | `/contato/` | `contato` |
+| Sublocação de sala | `/sublocacao-de-sala/` | `sublocacao` |
+| Política de privacidade | `/politica-de-privacidade/` | `lgpd` |
+| Blog | `/blog/` | `blog` (fora do sitemap, `noindex` — é placeholder) |
+
+Mudar um slug é mudar em dois lugares: a lista `ROTAS` do `build.py` e o `hrefs()` do
+`Site.dc.html`. Se os dois discordarem, o menu aponta para 404.
 
 ## Preview local
 
@@ -47,7 +68,10 @@ Precisa ser servido por HTTP — abrir o arquivo direto (`file://`) não funcion
 
 ## Publicar alteração
 
-Push na `main` → o GitHub Pages republica em ~1 min. Não há Actions neste repo.
+1. Editar `Site.dc.html`
+2. `python build.py`
+3. Commit dos arquivos gerados junto (o Pages serve o que está no repo — não há Actions aqui)
+4. Push na `main` → republica em ~1 min
 
 ## Pegadinhas
 
@@ -68,30 +92,43 @@ Push na `main` → o GitHub Pages republica em ~1 min. Não há Actions neste re
 
 ### Reexportar do Claude Design apaga estas correções
 
-Um export novo sobrescreve o arquivo inteiro. Estas quatro coisas foram feitas à mão e precisam ser
+Um export novo sobrescreve o arquivo inteiro. Estas coisas foram feitas à mão e precisam ser
 reaplicadas:
 
-1. Todo o `<head>` estático de SEO (title, description, robots, canonical, OG, JSON-LD, favicon,
-   `lang="pt-BR"`) — fora do `<helmet>`, que só roda depois do JS carregar.
+1. O `<head>` estático — hoje quem monta o SEO é o `build.py`, mas o export traz um `<head>`
+   genérico e é dele que o build reaproveita `lang="pt-BR"`, as fontes e o `<style>`.
 2. `criancas`, `casal` e `avaliacao` no mapa `servicePages` + o título da página de LGPD.
 3. `grid.pair` nos dois pares de campos e a trava de largura dos campos no `<style>`.
 4. `pad.footerBottom` no rodapé.
+5. **O andaime das rotas:** `base()` / `hrefs()`, o `go()` que navega de verdade
+   (`window.location.assign`), o `page` inicial vindo de `window.__DC_PAGE__`, os itens de menu e
+   rodapé como `<a href="{{ hrefs.X }}">` e o rodapé com as duas colunas de navegação.
+6. `width`/`height` nas fotos — sem eles a placa da sala 818 (que usa `height:auto`) entra em
+   colapso de layout enquanto carrega.
 
 ## Ao ligar o domínio próprio
 
-1. Apagar `<meta name="robots" content="noindex, nofollow">` do `Site.dc.html` **e** do `index.html`.
-2. Apagar o `Disallow: /` do `robots.txt`.
-3. Trocar as URLs de `canonical`, `og:url`, `og:image`, `twitter:image` e do JSON-LD para o domínio.
-4. Criar o arquivo `CNAME` na raiz com o domínio e apontar o DNS para o GitHub Pages.
+Tudo isso virou configuração no topo do `build.py`. **Primeiro o DNS, depois o build** — na ordem
+inversa o site fica fora do ar no intervalo, porque o Pages passa a redirecionar o endereço de
+revisão para um domínio que ainda não resolve.
+
+1. No painel de domínios da Wix, apontar `daniellycurionepsicologia.com` para o GitHub Pages:
+   quatro registros `A` na raiz (`185.199.108.153`, `185.199.109.153`, `185.199.110.153`,
+   `185.199.111.153`) e um `CNAME` de `www` para `evangelhoseo.github.io`.
+2. No `build.py`: `BASE_URL = DOMINIO` e `INDEXAR = True`.
+3. `python build.py` — isso já troca canonical/OG/JSON-LD, libera o `robots.txt`, escreve o
+   `sitemap.xml` e cria o `CNAME`.
+4. Commit + push, conferir o HTTPS no Settings → Pages e mandar o sitemap no Search Console.
 
 ## Pendências de conteúdo
 
-- Fotos que ainda faltam: placa da sala 818, mais ângulos do consultório, foto/mapa para a
-  página de Contato. Hoje o site usa a mesma foto de consultório em três lugares.
-- Página **Blog** existe ("Em breve, novos artigos") mas não está em nenhum menu — sem link.
-- **Limitação de SEO por ser SPA de uma URL:** as 11 páginas compartilham o mesmo endereço, título e
-  description, então o Google só consegue indexar uma. Para busca local (o que interessa a ela),
-  isso precisa virar URLs de verdade por página antes de considerar o site "no ar pra valer".
+- Página **Blog** existe ("Em breve, novos artigos") mas não está em nenhum menu e sai `noindex`,
+  fora do sitemap. Quando tiver artigo, entra no menu e sai do `indexar=False`.
+- **Instituições de formação:** a cliente pediu para tirar UNESA/PRAXIS/RAC/IPOG dos chips da home
+  (feito), mas não falou da tabela "Formação" do Sobre nem do `alumniOf` do JSON-LD, que continuam
+  citando as quatro. Confirmar com ela se é para tirar de tudo.
+- **O logo do cabeçalho ainda não é um `<a>`** — navega por JS. Funciona, inclusive para o
+  rastreador, porque o rodapé linka todas as rotas, mas não abre em nova aba.
 
 ## Nunca colocar no site
 
