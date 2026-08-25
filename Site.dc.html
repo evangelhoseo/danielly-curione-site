@@ -107,7 +107,7 @@
       <img src="./logo-simbolo.svg" alt="Danielly Curione" style="height:{{ sizes.logoH }}; width:auto; display:block">
       <div style="display:flex; flex-direction:column; gap:4px; line-height:1">
         <div style="font-family:'Newsreader',serif; font-size:{{ sizes.wordmarkSize }}; letter-spacing:.13em; color:#2A211B; white-space:nowrap">DANIELLY CURIONE</div>
-        <sc-if value="{{ isDesktop }}"><div style="font-size:8px; letter-spacing:.26em; color:#9A8467; white-space:nowrap">PSICOLOGIA · DESENVOLVIMENTO HUMANO</div></sc-if>
+        <div style="font-size:8px; letter-spacing:.26em; color:#9A8467; white-space:nowrap">PSICOLOGIA · DESENVOLVIMENTO HUMANO</div>
       </div>
     </div>
 
@@ -464,7 +464,10 @@
     <div style="display:flex; justify-content:space-between; gap:40px; flex-wrap:wrap">
       <div style="display:flex; align-items:center; gap:12px">
         <img src="./logo-simbolo-light.svg" alt="" style="height:38px; width:auto; display:block">
-        <div style="font-family:'Newsreader',serif; font-size:16px; letter-spacing:.13em; color:#FBF3E8">DANIELLY CURIONE</div>
+        <div style="display:flex; flex-direction:column; gap:4px; line-height:1">
+          <div style="font-family:'Newsreader',serif; font-size:16px; letter-spacing:.13em; color:#FBF3E8">DANIELLY CURIONE</div>
+          <div style="font-size:8px; letter-spacing:.26em; color:#9A8467; white-space:nowrap">PSICOLOGIA · DESENVOLVIMENTO HUMANO</div>
+        </div>
       </div>
       <div style="display:flex; gap:{{ gaps.footer }}; font-size:14px; line-height:1.9; flex-wrap:wrap">
         <div><div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#9A8467; margin-bottom:8px">Navegação</div><span style="cursor:pointer" onClick="{{ nav.home }}">Início</span><br><span style="cursor:pointer" onClick="{{ nav.sobre }}">Sobre</span><br><span style="cursor:pointer" onClick="{{ nav.avaliacao }}">Avaliação Psicológica</span><br><span style="cursor:pointer" onClick="{{ nav.contato }}">Contato</span></div>
