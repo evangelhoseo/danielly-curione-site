@@ -20,8 +20,8 @@ FONTE = os.path.join(RAIZ, 'Site.dc.html')
 # e FORA do Google. Ao ligar o dominio: trocar BASE_URL e por INDEXAR = True.
 # ---------------------------------------------------------------------------
 DOMINIO = 'https://daniellycurionepsicologia.com'
-BASE_URL = 'https://evangelhoseo.github.io/danielly-curione-site'
-INDEXAR = False
+BASE_URL = DOMINIO
+INDEXAR = True
 
 OG_IMAGE = BASE_URL + '/og-image.png'
 

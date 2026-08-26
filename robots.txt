@@ -1,4 +1,5 @@
-# Endereco de revisao: fora do Google de proposito.
-# Ao ligar o dominio, por INDEXAR = True no build.py e rodar de novo.
+# Site no ar. Sitemap abaixo.
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://daniellycurionepsicologia.com/sitemap.xml
