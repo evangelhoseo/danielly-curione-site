@@ -23,7 +23,7 @@ DOMINIO = 'https://daniellycurionepsicologia.com'
 BASE_URL = DOMINIO
 INDEXAR = True
 
-OG_IMAGE = BASE_URL + '/og-image.png'
+OG_IMAGE = BASE_URL + '/og-image.jpg'
 
 # Tagueamento (GTM+GA4, padrao da agencia — ver clientes/foco-tagueamento-ga4-status.md).
 # GTM_ID vazio desliga a injecao (fica sem o snippet, util pra rodar build fora do ar).
@@ -256,6 +256,10 @@ def head_da_rota(rota, prefixo):
 <meta property="og:title" content="%(title)s">
 <meta property="og:description" content="%(desc)s">
 <meta property="og:image" content="%(og)s">
+<meta property="og:image:secure_url" content="%(og)s">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="%(title)s">
 <meta name="twitter:description" content="%(desc)s">
