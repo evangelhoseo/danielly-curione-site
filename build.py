@@ -152,13 +152,7 @@ def jsonld(rota):
     "@type": "Person",
     "name": "Danielly Curione",
     "jobTitle": "Psicóloga clínica e psicanalista",
-    "identifier": "CRP 05/77951",
-    "alumniOf": [
-      { "@type": "EducationalOrganization", "name": "Universidade Estácio de Sá" },
-      { "@type": "EducationalOrganization", "name": "PRAXIS Psicanalítica" },
-      { "@type": "EducationalOrganization", "name": "RAC Pós-graduação" },
-      { "@type": "EducationalOrganization", "name": "IPOG Pós-graduação" }
-    ]
+    "identifier": "CRP 05/77951"
   }
 }''' % dict(base=BASE_URL, og=OG_IMAGE)
 
