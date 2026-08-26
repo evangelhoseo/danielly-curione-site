@@ -377,7 +377,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div style="font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#8A6A3E">Prévia da mensagem</div>
             <div style="font-size:14.5px; line-height:1.7; color:#4A3B2E">{{ mensagem }}</div>
           </div>
-          <button onClick="{{ enviar }}" style="background:#C8871F; color:#FFF9F0; border:none; border-radius:999px; padding:17px 30px; font-size:15px; font-weight:700; cursor:pointer">Abrir WhatsApp com esta mensagem</button>
+          <button onClick="{{ enviarContato }}" style="background:#C8871F; color:#FFF9F0; border:none; border-radius:999px; padding:17px 30px; font-size:15px; font-weight:700; cursor:pointer">Abrir WhatsApp com esta mensagem</button>
           <div style="font-size:12px; line-height:1.6; color:#9A8467">Nenhum dado é armazenado neste site.</div>
         </div>
       </div>
@@ -429,7 +429,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div style="font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#8A6A3E">Prévia da mensagem</div>
           <div style="font-size:14px; line-height:1.7; color:#4A3B2E">{{ mensagem }}</div>
         </div>
-        <button onClick="{{ enviar }}" style="background:#C8871F; color:#FFF9F0; border:none; border-radius:999px; padding:16px 30px; font-size:15px; font-weight:700; cursor:pointer">Abrir WhatsApp com esta mensagem</button>
+        <button onClick="{{ enviarModal }}" style="background:#C8871F; color:#FFF9F0; border:none; border-radius:999px; padding:16px 30px; font-size:15px; font-weight:700; cursor:pointer">Abrir WhatsApp com esta mensagem</button>
         <div style="font-size:12px; line-height:1.6; color:#9A8467">Nenhum dado é armazenado neste site.</div>
       </div>
     </div>
@@ -547,8 +547,13 @@ class Component extends DCLogic {
       ', na modalidade ' + mod + ', preferencialmente no período da ' + this.state.periodo.toLowerCase() + '. Podemos conversar?';
   }
 
-  openWhatsApp(text) {
-    window.open('https://wa.me/5521971008336?text=' + encodeURIComponent(text), '_blank', 'noopener');
+  openWhatsApp(text, ctaType) {
+    var url = 'https://wa.me/5521971008336?text=' + encodeURIComponent(text);
+    if (ctaType) {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'generate_lead', lead_method: 'whatsapp', cta_type: ctaType, link_url: url });
+    }
+    window.open(url, '_blank', 'noopener');
   }
 
   renderVals() {
@@ -593,7 +598,7 @@ class Component extends DCLogic {
       base: this.base(),
       hrefs: this.hrefs(),
       nav: { home: this.go('home'), sobre: this.go('sobre'), adultos: this.go('adultos'), criancas: this.go('criancas'), casal: this.go('casal'), avaliacao: this.go('avaliacao'), orientacao: this.go('orientacao'), blog: this.go('blog'), contato: this.go('contato'), sublocacao: this.go('sublocacao'), lgpd: this.go('lgpd'), atendimentosScroll: this.scrollToAtendimentos() },
-      waSublocacao: () => this.openWhatsApp('Olá, Danielly! Vi no site que a sala 818 está disponível para sublocação. Gostaria de saber mais sobre disponibilidade e valores.'),
+      waSublocacao: () => this.openWhatsApp('Olá, Danielly! Vi no site que a sala 818 está disponível para sublocação. Gostaria de saber mais sobre disponibilidade e valores.', 'sublocacao'),
       goHome: this.go('home'),
       menuOpen: this.state.menuOpen,
       openMenu: () => this.setState({ menuOpen: true }),
@@ -619,7 +624,8 @@ class Component extends DCLogic {
       setModalidade: (e) => this.setState({ modalidade: e.target.value }),
       setPeriodo: (e) => this.setState({ periodo: e.target.value }),
       mensagem: this.msg(),
-      enviar: () => { this.openWhatsApp(this.msg()); this.setState({ leadOpen: false }); }
+      enviarContato: () => { this.openWhatsApp(this.msg(), 'contato_pagina'); this.setState({ leadOpen: false }); },
+      enviarModal: () => { this.openWhatsApp(this.msg(), 'modal_agendamento'); this.setState({ leadOpen: false }); }
     };
   }
 }
