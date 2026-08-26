@@ -1,10 +1,11 @@
 /*!
  * cookie-banner.js — Foco Digital
  * Banner de consentimento de cookies (LGPD) para o site da Danielly Curione.
- * Sem consentimento explícito, nenhum evento de analytics é disparado: este
- * script só empurra `consent_granted` para o dataLayer depois do clique em
- * "Aceitar". O GTM (Google Tag + listener de cliques) só dispara tags a
- * partir desse evento — ver clientes/foco-tagueamento-ga4-status.md.
+ * Sem consentimento explícito, nenhum dado de analytics é coletado: o <head>
+ * já inicializa o Consent Mode do Google com analytics_storage=denied antes
+ * do GTM carregar; este script só chama consent update=granted (+ empurra
+ * `consent_granted` no dataLayer, usado por outros gatilhos) depois do clique
+ * em "Aceitar" — ver clientes/foco-tagueamento-ga4-status.md.
  */
 (function () {
   'use strict';
@@ -26,6 +27,8 @@
 
   function pushConsentGranted() {
     window.dataLayer = window.dataLayer || [];
+    function gtag() { window.dataLayer.push(arguments); }
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
     window.dataLayer.push({ event: 'consent_granted' });
   }
 
