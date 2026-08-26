@@ -25,6 +25,10 @@ INDEXAR = True
 
 OG_IMAGE = BASE_URL + '/og-image.png'
 
+# Tagueamento (GTM+GA4, padrao da agencia — ver clientes/foco-tagueamento-ga4-status.md).
+# GTM_ID vazio desliga a injecao (fica sem o snippet, util pra rodar build fora do ar).
+GTM_ID = 'GTM-5VK6P9XT'
+
 DESC_PADRAO = ('Psicoterapia para adultos, adolescentes, crianças, idosos e casais, avaliação '
                'psicológica e orientação profissional. Atendimento online e presencial em Niterói-RJ. CRP 05/77951.')
 
@@ -195,6 +199,29 @@ def jsonld(rota):
     return '{\n  "@context": "https://schema.org",\n  "@graph": [\n%s\n  ]\n}' % ',\n'.join(blocos)
 
 
+def gtm_head():
+    if not GTM_ID:
+        return ''
+    return ('''<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','%s');</script>
+<!-- End Google Tag Manager -->
+
+''' % GTM_ID)
+
+
+def gtm_noscript():
+    if not GTM_ID:
+        return ''
+    return ('<!-- Google Tag Manager (noscript) -->\n'
+            '<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=%s"\n'
+            'height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>\n'
+            '<!-- End Google Tag Manager (noscript) -->\n' % GTM_ID)
+
+
 def head_da_rota(rota, prefixo):
     u = url_da_rota(rota)
     indexavel = INDEXAR and rota['indexar']
@@ -246,9 +273,12 @@ def main():
         # navegador le o src cru antes do React montar, e um placeholder ali vira 404 em toda pagina.
         head = head_da_rota(rota, prefixo) + '\n\n' + resto_cabeca.strip().replace('"./', '"' + prefixo)
         corpo_rota = corpo.replace('"./', '"' + prefixo)
+        if GTM_ID:
+            corpo_rota = corpo_rota.replace('<body>', '<body>\n' + gtm_noscript(), 1)
         boot = ('<script>window.__DC_PAGE__=%r;window.__DC_BASE__=%r;</script>'
                 % (str(rota['page']), str(prefixo))).replace("'", '"')
         html = ('<!DOCTYPE html>\n<html lang="pt-BR">\n<head>\n'
+                + gtm_head()
                 + head + '\n\n<script type="application/ld+json">\n' + jsonld(rota) + '\n</script>\n\n'
                 + boot + '\n</head>' + corpo_rota)
 
